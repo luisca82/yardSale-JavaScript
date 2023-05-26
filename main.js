@@ -3,7 +3,7 @@ const usermenu = document.querySelector(".desktop-menu");
 const hamMenu = document.querySelector(".ham-menu");
 const verticalMenu = document.querySelector(".mobile-menu");
 const shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
-const aside_product_detail = document.querySelector(".product-detail");
+const shoppingCartConteiner = document.querySelector("#shoppingCartConteiner");
 const cardConteiner = document.querySelector('.cards-container');
 
 usernav.addEventListener('click',toggleMenu);
@@ -11,20 +11,20 @@ hamMenu.addEventListener('click',toggleHamMenu);
 shoppingCartIcon.addEventListener('click',toggleProductDetail);
 
 function toggleMenu(){
-    const isAside_product_detailClosed = aside_product_detail.classList.contains('inactive');
+    const isshoppingCartConteinerClosed = shoppingCartConteiner.classList.contains('inactive');
 
-    if(!isAside_product_detailClosed){
-        aside_product_detail.classList.add('inactive');
+    if(!isshoppingCartConteinerClosed){
+        shoppingCartConteiner.classList.add('inactive');
     }
 
     usermenu.classList.toggle('inactive');
 }
 
 function toggleHamMenu(){
-    const isAside_product_detailClosed = aside_product_detail.classList.contains('inactive');
+    const isshoppingCartConteinerClosed = shoppingCartConteiner.classList.contains('inactive');
 
-    if(!isAside_product_detailClosed){
-        aside_product_detail.classList.add('inactive');
+    if(!isshoppingCartConteinerClosed){
+        shoppingCartConteiner.classList.add('inactive');
     }
     verticalMenu.classList.toggle('inactive');
 }
@@ -40,7 +40,7 @@ function toggleProductDetail(){
         usermenu.classList.add('inactive');
     }
 
-    aside_product_detail.classList.toggle('inactive');
+    shoppingCartConteiner.classList.toggle('inactive');
 
 }
 
@@ -89,8 +89,8 @@ function renderProduct(arr){
         cardFigure.appendChild(iconCard);
 
 
-        productDetail.append(productPrice,productName,cardFigure);
-        productInfo.appendChild(productDetail);
+        productDetail.append(productPrice,productName);
+        productInfo.append(productDetail,cardFigure);
         productCard.append(productImg,productInfo);
         
         cardConteiner.appendChild(productCard);
