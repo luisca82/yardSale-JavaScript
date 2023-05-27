@@ -49,9 +49,17 @@ function toggleShoppingCartConteiner(){
 
 }
 //Carrito/Detalle de Producto
+const closeProductDetail = document.querySelector('#close-productDetail');
+closeProductDetail.addEventListener('click',closeProductConteiner);
 
+function closeProductConteiner(){
+    productDetail.classList.add('inactive');
+}
 
-
+function openProductConteiner(){
+    productDetail.classList.remove('inactive');
+    console.log(productDetail);
+}
 //Catalogo de productos
 
 const product_catalog=[];
@@ -83,6 +91,7 @@ function renderProduct(arr){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click',openProductConteiner);
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
